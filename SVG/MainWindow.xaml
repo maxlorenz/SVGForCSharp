@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="534.488" Width="718.976">
     <Grid>
-        <WebBrowser x:Name="webView"/>
+        <WebBrowser x:Name="webView" Margin="0,0,0,37"/>
+        <Button Content="Add bar" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Click="Button_Click" Height="22" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

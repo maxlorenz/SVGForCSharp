@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Globalization;
+using System.Xml.Linq;
 
 namespace SVG
 {
@@ -33,6 +34,21 @@ namespace SVG
         public static Paper group()
         {
             return new Paper("g");
+        }
+
+        public static Paper line(double x1, double y1, double x2, double y2)
+        {
+            Paper line = new Paper("line");
+            line.setAttribute("x1", x1);
+            line.setAttribute("y1", y1);
+            line.setAttribute("x2", x2);
+            line.setAttribute("y2", y2);
+
+            line.setAttribute(PaperSettings.fillColor, "none");
+            line.setAttribute(PaperSettings.strokeWidth, 1);
+            line.setAttribute(PaperSettings.strokeColor, "black");
+
+            return line;
         }
 
         public static Paper circle(double x, double y, double r)
@@ -104,7 +120,7 @@ namespace SVG
         }
 
         public void setAttribute(string attribute, dynamic value) {
-            this.content.SetAttributeValue(attribute, value.ToString());
+            this.content.SetAttributeValue(attribute, value.ToString(CultureInfo.InvariantCulture));
         }
 
         public void add(Paper element)
