@@ -12,17 +12,33 @@ namespace SVG
         {
             InitializeComponent();
 
-            Paper root = Paper.root(300, 400);
-            root.add(Paper.text(100, 100, "test"));
+            Paper root = Paper.root(700, 400);
 
-            Paper circle = Paper.circle(100, 100, 50);
-            circle.setAttribute("stroke", "green");
-            root.add(circle);
-
-            root.add(Paper.rect(200, 200, 50, 60, 20));
+            for (int i = 1; i < 10; i++)
+            {
+                root.add(bar(50, i * 22 + 50, 20, i * i + new Random().Next(100)));
+            }
 
             webView.NavigateToString(root.getSVGString());
             Console.WriteLine(root.getSVGString());
+        }
+
+        public Paper bar(int x, int y, int height, int length)
+        {
+            Paper bar = Paper.group();
+
+            Paper rect = Paper.rect(x, y, length, height);
+            rect.setAttribute(PaperSettings.fillColor, PaperColor.steelblue);
+            rect.setAttribute(PaperSettings.strokeColor, PaperColor.none);
+
+            Paper value = Paper.text(x + length + 5, y + height - 5, (length).ToString());
+            value.setAttribute(PaperSettings.fillColor, "black");
+            value.setAttribute(PaperSettings.fontFamily, "Calibri");
+
+            bar.add(rect);
+            bar.add(value);
+
+            return bar;
         }
     }
 }

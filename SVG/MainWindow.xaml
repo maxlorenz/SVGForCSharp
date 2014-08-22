@@ -1,9 +1,9 @@
 ﻿<Window x:Class="SVG.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="534.488" Width="718.976">
     <Grid>
-        <WebBrowser x:Name="webView" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"/>
+        <WebBrowser x:Name="webView"/>
 
     </Grid>
 </Window>
